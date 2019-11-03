@@ -1,0 +1,6 @@
+.idea
+node_modules/*
+all-jobs.png
+Dockerfile
+History.md
+job-details.png
