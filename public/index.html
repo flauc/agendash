@@ -154,11 +154,17 @@
           <% if (job.lockedAt) { %><p>Locked <time datetime="<%- moment(job.lockedAt).toISOString() %>"><%- moment(job.lockedAt).fromNow() %></time></p><% } %>
           <% if (job.repeatInterval) { %><p>Repeat each <%- job.repeatInterval %></p><% } %>
 
-          <strong>Job data</strong>
-          <pre><%- JSON.stringify(job.data, null, 2) %></pre>
+          <% if (job.data) { %>
+            <strong>Job data</strong>
+            <pre><%- JSON.stringify(job.data, null, 2) %></pre>
+          <% } %>
           <% if (failed) { %>
             <strong>Failure reason</strong>
             <pre><%- JSON.stringify(job.failReason || '', null, 2) %></pre>
+          <% } %>
+          <% if (job.response) { %>
+            <strong>Job response</strong>
+            <pre><%- JSON.stringify(job.response || '', null, 2) %></pre>
           <% } %>
         </div>
         <div class="panel-footer clearfix">
